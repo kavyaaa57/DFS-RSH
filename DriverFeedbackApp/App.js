@@ -53,14 +53,15 @@ export default function App() {
     }
 
     try {
-      const response = await axios.post('http://your-backend-url.com/collect-data', {
+      const response = await axios.post('http://172.16.45.70:5000/collect-data', {
         speed,
         accelerometer: accelerometerData,
         location: {
-          latitude: location.latitude,
-          longitude: location.longitude,
+            latitude: location.latitude,
+            longitude: location.longitude,
         },
-      });
+    });
+   
       Alert.alert('Data Sent', response.data.message);
     } catch (error) {
       console.error(error);
